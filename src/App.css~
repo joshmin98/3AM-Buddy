@@ -1,0 +1,21 @@
+.App {
+  text-align: center;
+}
+
+.fade-enter {
+    opacity: 0%;
+}
+
+.fade-enter-active {
+    opacity: 100%;
+    transition: .5s ease-in all;
+}
+
+.fade-leave {
+    opacity: 100%;
+}
+
+.fade-leave-active {
+    opacity: 100%;
+    transition: .5s ease-in all;
+}

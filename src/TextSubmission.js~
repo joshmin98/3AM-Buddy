@@ -1,0 +1,48 @@
+import React, { Component } from 'react';
+import { Form, Input, Label, Button, FormGroup } from 'reactstrap';
+
+var sentiment = require('sentiment');
+
+class TextSubmission extends Component{
+    constructor(props) {
+	super(props);
+	this.state = {value: '',
+		      analysis: {}};
+
+	this.handleChange = this.handleChange.bind(this);
+	this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    newAnalysis() {
+	this.props.updateAnalysis(this.state.analysis);
+    }
+
+    handleChange(event) {
+	this.setState({value: event.target.value});
+    }
+
+    handleSubmit(event) {
+	this.setState({analysis: sentiment(this.state.value)});
+	console.log(this.state.analysis);
+	this.newAnalysis();
+	event.preventDefault();
+    }
+
+    render() {
+	return (
+	      <div className="App">
+		<Form onSubmit={this.handleSubmit}>
+		  <FormGroup>
+		    <Label>
+		      <h3>Text:</h3>
+		      <Input bsSize="lg" type="text" value={this.state.value} onChange={this.handleChange} />
+		    </Label>
+		  </FormGroup>
+		  <Button onClick={this.handleSubmit} type="submit" value="Submit" >Submit</Button>
+		</Form>
+	      </div>
+	);
+    }
+}
+
+export default TextSubmission;
