@@ -22,6 +22,19 @@ class TextSubmission extends Component {
     }
 
     render() {
+	var currentState = this.state.analysis;
+	var scoreVal = null;;
+	if (this.state.value != '') {
+	  scoreVal = currentState.score;
+	}
+	var outputMessage = null;
+	if (scoreVal < 0 && this.state.value != '') {
+	    outputMessage = "You probably shouldn't send that. But I'm only about 70% sure!";
+	} else if (scoreVal > 0 && this.state.value != '') {
+	    outputMessage = "Looks alright to us!";
+	} else if (scoreVal === 0 && this.state.value != ''){
+	    outputMessage = "Hmm... I'm not too sure about that one. Your call!";
+	} 
 	return (
 	    <div className="App">
 	      <Form onSubmit={this.handleSubmit.bind(this)}>
@@ -33,7 +46,11 @@ class TextSubmission extends Component {
 		<AwesomeButton type="primary" size="large" value="Submit" >Should I send this?</AwesomeButton>
 	      </Form>
 	      <br />
-	      <h4>{JSON.stringify(this.state.analysis)}</h4>
+	      <span>
+		<h5>{scoreVal}</h5>
+		<h5>{outputMessage}</h5>
+	      </span>
+	      
 	    </div>
 	);
     }
