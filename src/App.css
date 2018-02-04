@@ -1,6 +1,32 @@
+body {
+    background: linear-gradient(214deg, #6bb0cd, #73c8ed, #469abe);
+    background-size: 600% 600%;
+
+    -moz-animation: AnimationName 8 ease infinite;
+    -o-animation: AnimationName 8 ease infinite;
+    animation: AnimationName 8 ease infinite;
+
+    @-moz-keyframes AnimationName {
+	0%{background-position:0% 51%}
+	50%{background-position:100% 50%}
+	100%{background-position:0% 51%}
+    }
+    @-o-keyframes AnimationName {
+	0%{background-position:0% 51%}
+	50%{background-position:100% 50%}
+	100%{background-position:0% 51%}
+    }
+    @keyframes AnimationName {
+	0%{background-position:0% 51%}
+	50%{background-position:100% 50%}
+	100%{background-position:0% 51%}
+    }
+}
 .App {
-  text-align: center;
-  padding-top: 300px;
+    color: #efefef;
+    font-family: 'Questrial', sans-serif;
+    text-align: center;
+    padding-top: 300px;
 }
 
 .fade-enter {
@@ -20,3 +46,4 @@
     opacity: 100%;
     transition: .5s ease-in all;
 }
+

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import TextSubmission from './TextSubmission';
-import Analysis from './Analysis';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class App extends Component {
